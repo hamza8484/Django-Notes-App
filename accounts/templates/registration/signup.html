@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+        <style>
+            /* تصميم الحاوية لتوسيط المحتوى في منتصف الصفحة */
+            .login-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 120vh; /* يجعل الحاوية تأخذ الارتفاع الكامل للصفحة */
+                background-color: #f5f5f5; /* لون خلفية هادئ */
+                padding: 20px;
+            }
+
+            /* تصميم صندوق تسجيل الدخول */
+            .login-box {
+                background-color: white;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* ظل خفيف لإضافة عمق */
+                width: 100%;
+                max-width: 500px; /* حجم الصندوق مناسب */
+                text-align: center;
+            }
+
+            /* تنسيق العنوان */
+            h2 {
+                margin-bottom: 35px;
+                color: #333;
+                font-size: 28px;
+                font-weight: 600;
+                font-family: 'Arial', sans-serif;
+            }
+
+            /* تنسيق الحقول */
+            form input, form select, form textarea {
+                width: 100%;
+                padding: 5px;
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 13px;
+                box-sizing: border-box; /* لضمان التناسق */
+                font-family: 'Arial', sans-serif;
+            }
+
+            /* تنسيق الحقول عند التركيز */
+            form input:focus, form select:focus, form textarea:focus {
+                border-color: #007bff;
+                outline: none;
+                box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+            }
+
+            /* تنسيق زر الإرسال */
+            button[type="submit"] {
+                width: 40%;
+                padding: 12px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 13px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                font-family: 'Arial', sans-serif;
+            }     
+        </style>
+
+        <div class="login-container">
+            <div class="login-box">
+                <h2>Signup</h2>
+                <hr>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form }} <!-- سيتم تنسيق الحقول باستخدام التنسيقات المخصصة هنا -->
+                    <button type="submit" class="btn badge-primary">Sign Up</button>
+                </form>
+            </div>
+        </div>
+
+{% endblock body %}
